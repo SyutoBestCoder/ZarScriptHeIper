@@ -222,7 +222,7 @@ renderHelper = {
 local recivedPacket = false
 local recivedPacket2 = false
 
-module_manager.register("BedAuraHelper", {
+module_manager.register("NewAirVelo", {
     on_receive_packet = function(e)
         if e.packet_id == 0x02 then
             message = string.gsub(e.message, '(\194\167%w)', '')
