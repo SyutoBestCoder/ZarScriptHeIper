@@ -254,5 +254,6 @@ module_manager.register("NewAirVelo", {
 
     on_player_join = function()
         recivedPacket = false
+        stopped = false
     end
 })
