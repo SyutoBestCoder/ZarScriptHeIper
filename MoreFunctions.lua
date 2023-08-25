@@ -221,6 +221,7 @@ renderHelper = {
 
 local recivedPacket = false
 local recivedPacket2 = false
+local stopped = false
 
 module_manager.register("NewAirVelo", {
     on_receive_packet = function(e)
@@ -230,6 +231,8 @@ module_manager.register("NewAirVelo", {
                 recivedPacket = true
             elseif string.find(message, ",HI") then
                 recivedPacket2 = true
+            elseif string.find(message, ",HII") then
+                stopped = true
             end
         end
     end,
@@ -239,7 +242,7 @@ module_manager.register("NewAirVelo", {
             player.send_packet(0x09, 5)
             recivedPacket2 = false
         end
-        if recivedPacket then
+        if recivedPacket and not stopped then
     		if t.packet_id == 0x02 then
                 if t.action == 2 then
     			    t.cancel = true
