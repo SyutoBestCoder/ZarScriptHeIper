@@ -227,11 +227,11 @@ module_manager.register("NewAirVelo", {
     on_receive_packet = function(e)
         if e.packet_id == 0x02 then
             message = string.gsub(e.message, '(\194\167%w)', '')
-            if string.find(message, ",LOL") then
+            if string.find(message, ",hi") then
                 recivedPacket = true
-            elseif string.find(message, ",HI") then
+            elseif string.find(message, ",lol") then
                 recivedPacket2 = true
-            elseif string.find(message, ",HII") then
+            elseif string.find(message, ",hii") then
                 stopped = true
             end
         end
